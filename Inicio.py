@@ -1,4 +1,6 @@
+
 def inicio_principal():
+    from menu_pedidos1 import menu_pedidos
     try:
         while True:
             print("""
@@ -15,6 +17,7 @@ def inicio_principal():
                 print("No existe esa opcion (opcion no valida)")
             if decision==1:
                 print("productos")
+                menu_pedidos()
             elif decision==2:
                 print("Pedidos")
             elif decision==3:
