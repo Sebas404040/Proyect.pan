@@ -35,6 +35,6 @@ def inicio_principal():
     except ValueError:
         print("Error, ingreso de valor no valido en el programa, intente reiniciar")
                 
-inicio_principal()
+
         
     
