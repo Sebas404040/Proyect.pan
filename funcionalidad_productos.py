@@ -1,9 +1,14 @@
 def registro_productos():
+    import json
     from Intermediarios import codigos
     print ("Ingrese los siguientes datos: ")
     codigo_pan=input("Ingrese el codigo del producto: ")
-    producto=codigos.get(codigo_pan, False)
-    if producto==False:
+
+    with open("almacen.json", "r") as verificador:
+        verificacion=json.load(verificador)
+    verificacion=codigos.get(codigo_pan, False)
+
+    if verificacion==False:
         nombre=input("ingrese el nombre del producto: ")
         categoria=input("ingrese la categoria: ")
         descripcion=input("ingrese alguna caracteristica: ")
@@ -21,6 +26,9 @@ def registro_productos():
             "precio_proveedor": precio_proveedor
         }
         codigos[codigo_pan]= producto
+
+        with open("almacen.json", "w") as agregar:
+            json.dump(codigos, agregar)
         print (codigos)
     else:
         print("El producto con el codigo ingresado ya se encuentra registrado")
