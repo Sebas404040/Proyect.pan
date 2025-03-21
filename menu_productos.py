@@ -1,4 +1,5 @@
 def menu_productos():
+    from funcionalidad_productos import registro_productos
     from Inicio import inicio_principal 
     while True:
         try:
@@ -14,6 +15,7 @@ def menu_productos():
                     print("No existe esa opcion (opcion no valida)")
                 if decision==1:
                     print("Registro de productos")
+                    registro_productos()
                 elif decision==2:
                     print("Almacenamiento de productos")
                 elif decision==3:
@@ -23,4 +25,3 @@ def menu_productos():
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
                 
                 
-menu_productos()

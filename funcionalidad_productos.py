@@ -3,16 +3,14 @@ def registro_productos():
     print ("Ingrese los siguientes datos: ")
     codigo_pan=input("Ingrese el codigo del producto: ")
     producto=codigos.get(codigo_pan, False)
-    if producto==True:
-        print("producto ya existente")
-        if producto==False:
-            nombre=input("ingrese el nombre del producto: ")
-            categoria=input("ingrese la categoria: ")
-            descripcion=input("ingrese alguna caracteristica: ")
-            proveedor=input("ingrese proveedor: ")
-            cantidad_stock=input("ingrese la cantidad disponible del producto: ")
-            precio_venta=input("ingrese el precio al dirigido al cliente: ")
-            precio_proveedor=input("ingrese el precio del proveedor: ")
+    if producto==False:
+        nombre=input("ingrese el nombre del producto: ")
+        categoria=input("ingrese la categoria: ")
+        descripcion=input("ingrese alguna caracteristica: ")
+        proveedor=input("ingrese proveedor: ")
+        cantidad_stock=input("ingrese la cantidad disponible del producto: ")
+        precio_venta=input("ingrese el precio al dirigido al cliente: ")
+        precio_proveedor=input("ingrese el precio del proveedor: ")
         producto= {
             "nombre": nombre,
             "categoria": categoria,
