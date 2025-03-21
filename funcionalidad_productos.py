@@ -33,4 +33,15 @@ def registro_productos():
     else:
         print("El producto con el codigo ingresado ya se encuentra registrado")
     
-registro_productos()
+def almacen_productos():
+    import json
+    with open("almacen.json", "r") as mostrar:
+        mostrar_productos=json.load(mostrar)
+        print (mostrar_productos)
+
+    "PRODUCTOS ENLISTADOS"
+    int(mostrar_productos)
+    for i in mostrar_productos:
+        print("Codigo:", i)
+        for j in mostrar_productos[i]:
+            print(j, mostrar_productos[i[j]])
