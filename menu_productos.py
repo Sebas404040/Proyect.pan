@@ -1,5 +1,5 @@
 def menu_productos():
-    from funcionalidad_productos import registro_productos
+    from funcionalidad_productos import registro_productos, almacenar_productos
     from Inicio import inicio_principal 
     while True:
         try:
@@ -18,10 +18,10 @@ def menu_productos():
                     registro_productos()
                 elif decision==2:
                     print("Almacenamiento de productos")
+                    almacenar_productos()
                 elif decision==3:
                     print("Retrocediendo...")
                     inicio_principal()
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
-                
-                
+                           
