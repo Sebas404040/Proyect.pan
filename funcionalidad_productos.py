@@ -1,37 +1,45 @@
+import json 
+
 def registro_productos():
-    import json
-    from Intermediarios import codigos
-    print ("Ingrese los siguientes datos: ")
-    codigo_pan=input("Ingrese el codigo del producto: ")
+    print("Ingrese los siguientes datos: ")
+    codigo_pan = input("Ingrese el código del producto: ")
 
-    with open("almacen.json", "r") as verificador:
-        verificacion=json.load(verificador)
-    verificacion=codigos.get(codigo_pan, False)
+    try:
+        with open("almacen.json", "r") as archivo:
+            productos = json.load(archivo)  
+    except (FileNotFoundError, json.JSONDecodeError):
+        productos = {} 
+    
+    if codigo_pan in productos:
+        print("ERROR, Producto ya existente")
+        return
+    nombre = input("Ingrese el nombre del producto: ")
+    categoria = input("Ingrese la categoría: ")
+    descripcion = input("Ingrese alguna característica: ")
+    proveedor = input("Ingrese proveedor: ")
+    cantidad_stock = int(input("Ingrese la cantidad disponible del producto: "))
+    precio_venta = int(input("Ingrese el precio dirigido al cliente: "))
+    precio_proveedor = int(input("Ingrese el precio del proveedor: "))
 
-    if verificacion==False:
-        nombre=input("ingrese el nombre del producto: ")
-        categoria=input("ingrese la categoria: ")
-        descripcion=input("ingrese alguna caracteristica: ")
-        proveedor=input("ingrese proveedor: ")
-        cantidad_stock=input("ingrese la cantidad disponible del producto: ")
-        precio_venta=input("ingrese el precio al dirigido al cliente: ")
-        precio_proveedor=input("ingrese el precio del proveedor: ")
-        producto= {
-            "nombre": nombre,
-            "categoria": categoria,
-            "descripcion": descripcion,
-            "proveedor": proveedor,
-            "cantidad": cantidad_stock,
-            "precio_venta": precio_venta,
-            "precio_proveedor": precio_proveedor
-        }
-        codigos[codigo_pan]= producto
+    producto = {
+        "nombre": nombre,
+        "categoria": categoria,
+        "descripcion": descripcion,
+        "proveedor": proveedor,
+        "cantidad": cantidad_stock,
+        "precio_venta": precio_venta,
+        "precio_proveedor": precio_proveedor
+    }
 
-        with open("almacen.json", "w") as agregar:
-            json.dump(codigos, agregar)
-        print (codigos)
-    else:
-        print("El producto con el codigo ingresado ya se encuentra registrado")
+  
+    productos[codigo_pan] = producto
+
+
+    with open("almacen.json", "w") as agregar:
+        json.dump(productos, agregar, indent=4) 
+
+    print("Se agrego el producto")  
+
     
 
 def almacenar_productos():
