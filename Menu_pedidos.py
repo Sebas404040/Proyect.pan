@@ -1,4 +1,5 @@
 def menu_pedidos():
+    from funcionalidad_pedidos import registro_pedidos
     from Inicio import inicio_principal 
     while True:
         try:
@@ -16,6 +17,7 @@ def menu_pedidos():
                     print("No existe esa opcion (opcion no valida)")
                 if decision==1:
                     print("Creacion de pedidos")
+                    registro_pedidos() 
                 elif decision==2:
                     print("Registro de pedidos")
                 elif decision==3:
