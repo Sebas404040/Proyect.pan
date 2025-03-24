@@ -78,10 +78,13 @@ def registro_pedidos():
         for cuenta in range(numero_productos):
 
             print("ingrese los productos para ingresarlos al pedido")
-            ingresar_producto=int(input("Codigo del producto: "))
+            ingresar_producto=input("Codigo del producto: ").strip()
             stock=int(input("Ingrese la cantidad a pedir: "))
+            codigo_producto=productos.get(ingresar_producto, {})
             linea_pedido=int(input("Ingrese la linea del pedido: "))
-            precio_venta = productos.get(ingresar_producto).get("precio_venta")
+            if not codigo_producto:
+                print("codigo no existe")
+            precio_venta = codigo_producto.get("precio venta",0)
             conjunto_pedido={
                 "codigo del pedido": codigo_pedido,
                 "codigo del producto":ingresar_producto,
@@ -93,9 +96,9 @@ def registro_pedidos():
             pedido.update(conjunto_pedidos)
             referencias[codigo_pedido]=pedido
 
-                
             with open("encargos.json", "w") as agregar:
                 json.dump(referencias, agregar)
-            print (referencias)
+            
+            obtener_cantidad=productos.get(ingresar_producto)
     else:
         print("Pedido ya ingresado")

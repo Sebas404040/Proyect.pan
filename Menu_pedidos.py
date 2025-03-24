@@ -19,12 +19,10 @@ def menu_pedidos():
                     print("Creacion de pedidos")
                     registro_pedidos() 
                 elif decision==2:
-                    print("Registro de pedidos")
-                elif decision==3:
                     print("Editar pedidos")
-                elif decision==4:
+                elif decision==3:
                     print("Eliminar pedidos")
-                elif decision==5:
+                elif decision==4:
                     inicio_principal()
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
