@@ -45,10 +45,9 @@ def almacenar_productos():
     import json
     with open("almacen.json", "r") as mostrar:
         mostrar_productos = json.load(mostrar)
-
     print("PRODUCTOS ENLISTADOS")
-    
     for codigo, detalles in mostrar_productos.items():
+        print("---------------------------")
         print("Código:", codigo)
         for clave, valor in detalles.items():
             print(f"{clave}: {valor}")
