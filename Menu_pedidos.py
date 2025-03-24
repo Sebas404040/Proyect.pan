@@ -6,7 +6,6 @@ def menu_pedidos():
             while True:
                 print("""
                     1. Creacion de pedidos
-                    2. Registro de productos
                     3. Editar pedidos
                     4. Eliminar pedidos
                     5. Retroceder

@@ -58,7 +58,7 @@ def registro_pedidos():
     conjunto_pedidos={}
     from Intermediarios import referencias
     print ("Ingrese los siguientes datos: ")
-    codigo_pedido=input("Ingrese el codigo del pedido: ")
+    codigo_pedido = input("Ingrese el código del pedido: ").strip()
     with open("encargos.json", "r") as verificador_pedidos:
         verificacion_pedidos=json.load(verificador_pedidos)
     verificacion_pedidos=referencias.get(codigo_pedido, False)
@@ -84,7 +84,7 @@ def registro_pedidos():
             linea_pedido=int(input("Ingrese la linea del pedido: "))
             if not codigo_producto:
                 print("codigo no existe")
-            precio_venta = codigo_producto.get("precio venta",0)
+            precio_venta = productos[ingresar_producto].get("precio_venta",0)
             conjunto_pedido={
                 "codigo del pedido": codigo_pedido,
                 "codigo del producto":ingresar_producto,
