@@ -79,7 +79,7 @@ def editar_productos():
                                     Guardar_cambios(mostrar_pedidos, productos_edicion)
                                     print("Exito")
                         elif decision_editar==3:
-                            print("Eliminar un pedido")
+                            print("Eliminar un producto de los pedidos")
                             codigo_cambiar=input("Ingrese el codigo del producto que quiere modificar").strip()
                             for producto in pedido["Productos"]:
                                 if producto["codigo del producto"]== codigo_cambiar:
@@ -92,11 +92,28 @@ def editar_productos():
                             break
                 elif decision==2:
                     print("Eliminar un pedido")
-                    
+                    codigo_borrar=input("Ingrese el codigo del pedido para eliminarlo")
+                    if codigo_borrar in mostrar_pedidos:
+                        pedido_borrar=mostrar_pedidos[codigo_borrar]
+                        with open("almacen.json", "r") as devolver_cantidades:
+                            cantidades=json.load(devolver_cantidades)
+                        if "Productos" not in pedido_borrar or not isinstance(pedido_borrar["Productos"], list):
+                            print("Pedido sin productos, eliminacion fallida")
+                        else:
+                            for producto in pedido_borrar["Productos"]:
+                                codigo_producto_agregar=producto["codigo del producto"]
+                                devolucion=producto.get("cantidad",0)
+                                if codigo_producto_agregar in cantidades:
+                                    cantidades[codigo_producto_agregar]["cantidad"] += devolucion
+                            with open("almacen.json", "w") as actualizar:
+                                json.dump(cantidades, actualizar, indent=4)
+                            del mostrar_pedidos[codigo_borrar]
+                            with open("encargos.json", "w") as pedidos_actualizar:
+                                json.dump(mostrar_pedidos, pedidos_actualizar,indent=4)
+                            print("Pedido eliminado correctamente")
+                elif decision==3:
+                    menu_pedidos()
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
-
-editar_productos()
-
 
     
