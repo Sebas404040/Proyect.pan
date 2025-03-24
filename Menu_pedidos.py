@@ -1,4 +1,5 @@
 def menu_pedidos():
+    from edicion_eliminacion_pedidos import editar_productos
     from funcionalidad import registro_pedidos
     from Inicio import inicio_principal 
     while True:
@@ -7,8 +8,7 @@ def menu_pedidos():
                 print("""
                     1. Creacion de pedidos
                     2. Editar pedidos
-                    3. Eliminar pedidos
-                    4. Retroceder
+                    3. Retroceder
                     """)
                 print("Ingrese una opcion")
                 decision=int(input("Opcion:"))
@@ -19,9 +19,8 @@ def menu_pedidos():
                     registro_pedidos() 
                 elif decision==2:
                     print("Editar pedidos")
+                    editar_productos()
                 elif decision==3:
-                    print("Eliminar pedidos")
-                elif decision==4:
                     inicio_principal()
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
