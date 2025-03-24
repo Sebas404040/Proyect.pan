@@ -1,5 +1,5 @@
 def menu_pedidos():
-    from funcionalidad_pedidos import registro_pedidos
+    from funcionalidad import registro_pedidos
     from Inicio import inicio_principal 
     while True:
         try:

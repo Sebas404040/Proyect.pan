@@ -1,5 +1,5 @@
 def menu_productos():
-    from funcionalidad_productos import registro_productos, almacenar_productos
+    from funcionalidad import registro_productos, almacenar_productos
     from Inicio import inicio_principal 
     while True:
         try:
