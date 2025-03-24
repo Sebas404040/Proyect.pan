@@ -6,9 +6,9 @@ def menu_pedidos():
             while True:
                 print("""
                     1. Creacion de pedidos
-                    3. Editar pedidos
-                    4. Eliminar pedidos
-                    5. Retroceder
+                    2. Editar pedidos
+                    3. Eliminar pedidos
+                    4. Retroceder
                     """)
                 print("Ingrese una opcion")
                 decision=int(input("Opcion:"))

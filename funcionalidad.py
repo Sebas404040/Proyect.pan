@@ -68,8 +68,10 @@ def registro_pedidos():
         print("A continuacion, ingrese los detalles del pedido")
         pedido= {
             "Codigo del cliente": codigo_cliente,
-            "Fecha del pedido": fecha_pedido
-            }
+            "Fecha del pedido": fecha_pedido,
+            "Productos": []
+         }
+        
         
         numero_productos=int(input("Cuantos productos desea ingresar: "))
         with open ("almacen.json", "r") as obtener_precio:
@@ -79,12 +81,20 @@ def registro_pedidos():
 
             print("ingrese los productos para ingresarlos al pedido")
             ingresar_producto=input("Codigo del producto: ").strip()
+            if ingresar_producto not in productos:
+                print("Este producto no existe, ingrese uno valido")
+                continue
             stock=int(input("Ingrese la cantidad a pedir: "))
             codigo_producto=productos.get(ingresar_producto, {})
             linea_pedido=int(input("Ingrese la linea del pedido: "))
             if not codigo_producto:
                 print("codigo no existe")
             precio_venta = productos[ingresar_producto].get("precio_venta",0)
+            stock_disponible= productos[ingresar_producto].get("cantidad",0)
+            if stock>stock_disponible:
+                print("cantidades no disponibles para la cantidad pedida")
+                continue
+            productos[ingresar_producto]["cantidad"]-=stock
             conjunto_pedido={
                 "codigo del pedido": codigo_pedido,
                 "codigo del producto":ingresar_producto,
@@ -92,13 +102,19 @@ def registro_pedidos():
                 "Precio cada unidad":precio_venta,
                 "linea del pedido":linea_pedido
             }
-            conjunto_pedidos[codigo_pedido]=conjunto_pedido
-            pedido.update(conjunto_pedidos)
-            referencias[codigo_pedido]=pedido
+            pedido["Productos"].append(conjunto_pedido)
+            with open ("almacen.json", "r") as contador:
+                tomar_productos=json.load(contador)
+            cantidad_producto=tomar_productos[ingresar_producto].get("cantidad", 0)
+            print (cantidad_producto)
+        referencias[codigo_pedido] = pedido
+        
+        with open("encargos.json", "w") as agregar_pedido:
+            json.dump(referencias, agregar_pedido, indent=4)
 
-            with open("encargos.json", "w") as agregar:
-                json.dump(referencias, agregar)
-            
-            obtener_cantidad=productos.get(ingresar_producto)
+        with open("almacen.json", "w") as actualizar_stock:
+            json.dump(productos,actualizar_stock, indent=4)
+
+
     else:
-        print("Pedido ya ingresado")
+        print("Codigo de pedido ya ingresado")
