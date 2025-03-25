@@ -1,1 +1,38 @@
-{"304943": {"nombre": "pastel de pollo", "categoria": "3pastelitos", "descripcion": "perreros", "proveedor": "retros", "cantidad": "45", "precio_venta": "4500", "precio_proveedor": "3000"}}
+{
+    "001": {
+        "nombre": "Pan de bono",
+        "categoria": "panes",
+        "descripcion": "relleno de queso",
+        "proveedor": "panes SAS",
+        "cantidad": 17,
+        "precio_venta": 3500,
+        "precio_proveedor": 3000
+    },
+    "002": {
+        "nombre": "Torta genovesa",
+        "categoria": "postre",
+        "descripcion": "tres levhes",
+        "proveedor": "panes SAS",
+        "cantidad": 1,
+        "precio_venta": 8000,
+        "precio_proveedor": 7000
+    },
+    "003": {
+        "nombre": "Empanadas",
+        "categoria": "empanadas",
+        "descripcion": "rellenas de queso",
+        "proveedor": "panes SAS",
+        "cantidad": 10,
+        "precio_venta": 3000,
+        "precio_proveedor": 2000
+    },
+    "004": {
+        "nombre": "churros",
+        "categoria": "churro",
+        "descripcion": "rellenos de bocadillo con queso",
+        "proveedor": "panes SAS",
+        "cantidad": 3,
+        "precio_venta": 3000,
+        "precio_proveedor": 2000
+    }
+}

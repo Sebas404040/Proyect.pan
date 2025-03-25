@@ -1,1 +1,35 @@
-[]
+{
+    "000001": {
+        "Codigo del cliente": "300",
+        "Fecha del pedido": "6 de julio",
+        "Productos": [
+            {
+                "codigo del pedido": "000001",
+                "codigo del producto": "003",
+                "cantidad": 20,
+                "Precio cada unidad": 3000,
+                "linea del pedido": 356
+            },
+            {
+                "codigo del pedido": "000001",
+                "codigo del producto": "002",
+                "cantidad": 2,
+                "Precio cada unidad": 8000,
+                "linea del pedido": 456
+            }
+        ]
+    },
+    "3454": {
+        "Codigo del cliente": "3344",
+        "Fecha del pedido": "34334",
+        "Productos": [
+            {
+                "codigo del pedido": "3454",
+                "codigo del producto": "001",
+                "cantidad": 3,
+                "Precio cada unidad": 3500,
+                "linea del pedido": 234
+            }
+        ]
+    }
+}
