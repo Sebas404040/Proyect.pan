@@ -11,16 +11,17 @@ def menu_pedidos():
                     3. Retroceder
                     """)
                 print("Ingrese una opcion")
-                decision=int(input("Opcion:"))
-                if decision>4:
+                decision_pedido=int(input("Opcion:"))
+                if decision_pedido>4:
                     print("No existe esa opcion (opcion no valida)")
-                if decision==1:
+                if decision_pedido==1:
                     print("Creacion de pedidos")
                     registro_pedidos() 
-                elif decision==2:
+                elif decision_pedido==2:
                     print("Editar pedidos")
                     editar_productos()
-                elif decision==3:
+                elif decision_pedido==3:
+                    decision_pedido==0
                     inicio_principal()
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")

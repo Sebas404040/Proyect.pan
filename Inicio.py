@@ -13,19 +13,19 @@ def inicio_principal():
                 4. Cerrar programa
                 """)
             print("Ingrese una opcion")
-            decision=int(input("Opcion:"))
-            if decision>4:
+            decision_inicio=int(input("Opcion:"))
+            if decision_inicio>4:
                 print("No existe esa opcion (opcion no valida)")
-            if decision==1:
+            if decision_inicio==1:
                 print("productos")
                 menu_productos()
-            elif decision==2:
+            elif decision_inicio==2:
                 print("Pedidos")
                 menu_pedidos()
-            elif decision==3:
+            elif decision_inicio==3:
                 print("Busqueda de productos")
                 buscar_productos_pedidos()
-            elif decision==4:
+            elif decision_inicio==4:
                 print("Saliendo...")
                 break
     except ValueError:

@@ -10,18 +10,20 @@ def menu_productos():
                     3. Retroceder
                     """)
                 print("Ingrese una opcion")
-                decision=int(input("Opcion:"))
-                if decision>3:
+                decision_producto=int(input("Opcion:"))
+                if decision_producto>3:
                     print("No existe esa opcion (opcion no valida)")
-                if decision==1:
+                if decision_producto==1:
                     print("Registro de productos")
                     registro_productos()
-                elif decision==2:
+                elif decision_producto==2:
                     print("Almacenamiento de productos")
                     almacenar_productos()
-                elif decision==3:
+                elif decision_producto==3:
                     print("Retrocediendo...")
+                    decision_producto==0
                     inicio_principal()
+                    
         except ValueError:
             print("Error, ingreso de valor no valido en el programa, Devuelto al menu")
                            
