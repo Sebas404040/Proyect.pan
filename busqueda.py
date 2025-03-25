@@ -28,7 +28,25 @@ def buscar_productos_pedidos():
         inicio_principal()
     elif decision_busqueda==2:
         print("Buscar pedidos")
+        codigo_pedido_busqueda=input("ingrese el codigo del pedido: ").strip()
+        with open ("encargos.json", "r")as buscador_pedidos:
+            memoria_pedidos=json.load(buscador_pedidos)
+        pedido=memoria_pedidos.get(codigo_pedido_busqueda)
+        if pedido:
+            print("BUSQUEDA TERMINADA")
+            print("Codigo del pedido", codigo_pedido_busqueda)
+            print("    codigo del cliente", pedido["Codigo del cliente"])
+            print("Productos")
+            for producto in pedido.get("Productos", []):   
+                print("- Código Producto: ", producto['codigo del producto'])
+                print("    Cantidad: ", producto['cantidad'])
+                print("Precio de Venta: ", producto['Precio cada unidad'])         
+            print("--------------------------------------------------")
+        else:
+            print("pedido no existe")
+
     elif decision_busqueda==3:
         print("Regresar")
+        inicio_principal()
 
     
